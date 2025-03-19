@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'Cormorant SC';
+    src: url('assets/fonts/Cormorant_SC/CormorantSC-Regular.ttf') format('truetype'),
+         url('assets/fonts/Cormorant_SC/CormorantSC-Bold.ttf') format('truetype'),
+         url('assets/fonts/Cormorant_SC/CormorantSC-Medium.ttf') format('truetype'),
+         url('assets/fonts/Cormorant_SC/CormorantSC-SemiBold.ttf') format('truetype'),
+         url('assets/fonts/Cormorant_SC/CormorantSC-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  body {
+    font-family: 'Cormorant SC', serif;
+
+  }
+  body, html {
+    margin: 0;
+}

@@ -1,0 +1,46 @@
+html {
+    margin: 0;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #f7ede3;
+    color: white;
+  
+    .hero-content {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 20px 40px;
+      border-radius: 10px;
+  
+      h1 {
+        font-size: 3rem;
+        font-family: 'Playfair Display', serif;
+      }
+  
+      p {
+        font-size: 1.2rem;
+        margin-top: 10px;
+      }
+  
+      .btn {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background: gold;
+        color: black;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+  
+        &:hover {
+          background: white;
+          color: gold;
+        }
+      }
+    }
+  }
+  
