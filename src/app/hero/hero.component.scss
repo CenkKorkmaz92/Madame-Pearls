@@ -6,11 +6,13 @@ html {
   position: relative;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: #ffe7d3;
   overflow: hidden;
+  padding: 20px;
 }
 
 /* Pseudo-element for blurring the background */
@@ -29,8 +31,10 @@ html {
   z-index: -1; /* Sends it behind content */
 }
 
-
 .hero-content {
+  display: flex;
+  flex-direction: column;
+    align-items: center;
   background: rgba(0, 0, 0, 0.5);
   padding: 20px 40px;
   border-radius: 10px;
@@ -61,3 +65,45 @@ html {
     }
   }
 }
+
+/* Image Carousel */
+.carousel {
+  position: relative;
+  width: 80%;
+  max-width: 1000px;
+  margin-top: 30px; /* Spacing between hero content and carousel */
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.carousel-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide img {
+  width: 250px;
+  height: 250px;
+  border-radius: 10px;
+}
+
+/* Carousel Navigation Buttons */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }

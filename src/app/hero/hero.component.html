@@ -1,7 +1,13 @@
 <section class="hero">
-    <div class="hero-content">
-      <h1>Madame Pearls</h1>
-      <p>Discover handcrafted jewelry that defines luxury.</p>
+  <div class="hero-content">
+    <h1>Madame Pearls</h1>
+    <p>Discover handcrafted jewelry that defines luxury.</p>
+    <div class="carousel">
+      <div class="carousel-container" [style.transform]="'translateX(' + (-currentIndex * 100) + '%)'">
+        <div class="slide" *ngFor="let image of images">
+          <img [src]="image" alt="Jewelry">
+        </div>
+      </div>
     </div>
-  </section>
-  
+  </div>
+</section>
