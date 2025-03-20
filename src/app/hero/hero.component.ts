@@ -11,6 +11,8 @@ import { CommonModule } from '@angular/common';
 export class HeroComponent implements OnInit, OnDestroy {
   currentIndexes = [0, 0, 0];
   intervals: any[] = [];
+  userInteracted = [false, false, false];
+  resumeTimers: any[] = [];
 
   carousels = [
     {
@@ -32,7 +34,7 @@ export class HeroComponent implements OnInit, OnDestroy {
     {
       images: [
         './assets/images/men/men_7.webp',
-        './assets/images/women/women_1.webp',
+        './assets/images/women/women_2.webp',
         './assets/images/kids/kids_1.webp'
       ],
       alt: 'Bracelet Collection'
@@ -54,7 +56,9 @@ export class HeroComponent implements OnInit, OnDestroy {
     this.ngZone.runOutsideAngular(() => {
       this.carousels.forEach((_, index) => {
         this.intervals[index] = setInterval(() => {
-          this.ngZone.run(() => this.moveSlide(index, 1));
+          if (!this.userInteracted[index]) {
+            this.ngZone.run(() => this.moveSlide(index, 1));
+          }
         }, 8000);
       });
     });
@@ -62,14 +66,24 @@ export class HeroComponent implements OnInit, OnDestroy {
 
   clearIntervals(): void {
     this.intervals.forEach(interval => clearInterval(interval));
+    this.resumeTimers.forEach(timer => clearTimeout(timer));
   }
 
   moveSlide(carouselIndex: number, step: number): void {
     const totalSlides = this.carousels[carouselIndex].images.length;
-    this.currentIndexes[carouselIndex] = (this.currentIndexes[carouselIndex] + step) % totalSlides;
+    this.currentIndexes[carouselIndex] = (this.currentIndexes[carouselIndex] + step + totalSlides) % totalSlides;
   }
 
   setSlide(carouselIndex: number, index: number): void {
     this.currentIndexes[carouselIndex] = index;
+    this.userInteracted[carouselIndex] = true;
+    this.resetAutoSlide(carouselIndex);
+  }
+
+  resetAutoSlide(carouselIndex: number): void {
+    clearTimeout(this.resumeTimers[carouselIndex]);
+    this.resumeTimers[carouselIndex] = setTimeout(() => {
+      this.userInteracted[carouselIndex] = false;
+    }, 15000);
   }
 }
