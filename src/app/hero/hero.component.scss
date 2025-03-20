@@ -15,7 +15,7 @@ html {
   gap: 20px;
 }
 
-/* Pseudo-element for blurring the background */
+/* Background blur */
 .hero::before {
   content: "";
   position: absolute;
@@ -23,26 +23,13 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url(../../assets/images/hero_background.webp);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  background: url(../../assets/images/backgrounds/hero_background.webp) center/cover no-repeat;
   filter: blur(3px);
   z-index: -1;
 }
 
 span {
   font-size: 20px;
-}
-
-.headline-container {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-
-  div {
-    font-size: 32px;
-  }
 }
 
 .hero-content {
@@ -57,27 +44,6 @@ span {
   h1 {
     font-size: 3rem;
     font-family: 'Playfair Display', serif;
-  }
-
-  p {
-    font-size: 1.2rem;
-    margin-top: 10px;
-  }
-
-  .btn {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background: gold;
-    color: black;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-
-    &:hover {
-      background: white;
-      color: gold;
-    }
   }
 }
 
@@ -98,13 +64,14 @@ span {
 
 .slide {
   min-width: 100%;
-  transition: transform 9s ease-in-out;
 }
 
 .slide img {
-  width: 250px;
-  height: 250px;
+  width: 100%;
+  max-width: 250px;
+  height: auto;
   border-radius: 10px;
+  object-fit: cover;
 }
 
 /* Navigation Controls */
@@ -124,21 +91,10 @@ button {
   cursor: pointer;
   transition: all 0.3s ease;
   color: white;
-  position: relative;
 
   &:hover {
     color: #ffe7d3;
     transform: scaleX(1.2);
-  }
-
-  &.prev:hover {
-    transform: translateX(-5px) scaleX(1.3);
-    /* Stretch left */
-  }
-
-  &.next:hover {
-    transform: translateX(5px) scaleX(1.3);
-    /* Stretch right */
   }
 }
 

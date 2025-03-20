@@ -9,32 +9,37 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./hero.component.scss']
 })
 export class HeroComponent implements OnInit, OnDestroy {
-  currentIndex1: number = 0;
-  currentIndex2: number = 0;
-  currentIndex3: number = 0;
-  interval1!: any;
-  interval2!: any;
-  interval3!: any;
+  currentIndexes = [0, 0, 0];
+  intervals: any[] = [];
 
-  images1: string[] = [
-    '../../assets/images/material_1.webp',
-    '../../assets/images/material_2.webp',
-    '../../assets/images/material_3.webp'
+  carousels = [
+    {
+      images: [
+        './assets/images/materials/material_1.webp',
+        './assets/images/materials/material_2.webp',
+        './assets/images/materials/material_3.webp'
+      ],
+      alt: 'Volcano Material'
+    },
+    {
+      images: [
+        './assets/images/showcase/showcase_1.jpg',
+        './assets/images/showcase/showcase_2.jpg',
+        './assets/images/showcase/showcase_3.jpg'
+      ],
+      alt: 'Jewelry Showcase'
+    },
+    {
+      images: [
+        './assets/images/men/men_7.webp',
+        './assets/images/women/women_1.webp',
+        './assets/images/kids/kids_1.webp'
+      ],
+      alt: 'Bracelet Collection'
+    }
   ];
 
-  images2: string[] = [
-    '../../assets/images/bracelet_1.jpg',
-    '../../assets/images/bracelet_2.jpg',
-    '../../assets/images/bracelet_3.jpg'
-  ];
-
-  images3: string[] = [
-    '../../assets/images/men_1.webp',
-    '../../assets/images/women_1.webp',
-    '../../assets/images/kids_1.webp'
-  ];
-
-  constructor(private ngZone: NgZone) {}
+  constructor(private ngZone: NgZone) { }
 
   ngOnInit(): void {
     this.startAutoSlide();
@@ -45,49 +50,26 @@ export class HeroComponent implements OnInit, OnDestroy {
   }
 
   startAutoSlide(): void {
-    this.clearIntervals(); // Clear existing intervals to avoid duplicates
-
-    // Run outside Angular's change detection to prevent hydration issues
+    this.clearIntervals();
     this.ngZone.runOutsideAngular(() => {
-      this.interval1 = setInterval(() => this.ngZone.run(() => this.moveSlide(1, 1)), 8000);
-      this.interval2 = setInterval(() => this.ngZone.run(() => this.moveSlide(2, 1)), 8000);
-      this.interval3 = setInterval(() => this.ngZone.run(() => this.moveSlide(3, 1)), 8000);
+      this.carousels.forEach((_, index) => {
+        this.intervals[index] = setInterval(() => {
+          this.ngZone.run(() => this.moveSlide(index, 1));
+        }, 8000);
+      });
     });
   }
 
   clearIntervals(): void {
-    if (this.interval1) clearInterval(this.interval1);
-    if (this.interval2) clearInterval(this.interval2);
-    if (this.interval3) clearInterval(this.interval3);
+    this.intervals.forEach(interval => clearInterval(interval));
   }
 
-  moveSlide(carousel: number, step: number): void {
-    let totalSlides: number;
-    let currentIndexRef: 'currentIndex1' | 'currentIndex2' | 'currentIndex3';
-
-    if (carousel === 1) {
-      totalSlides = this.images1.length;
-      currentIndexRef = 'currentIndex1';
-    } else if (carousel === 2) {
-      totalSlides = this.images2.length;
-      currentIndexRef = 'currentIndex2';
-    } else if (carousel === 3) {
-      totalSlides = this.images3.length;
-      currentIndexRef = 'currentIndex3';
-    } else {
-      return;
-    }
-
-    this[currentIndexRef] = (this[currentIndexRef] + step) % totalSlides;
+  moveSlide(carouselIndex: number, step: number): void {
+    const totalSlides = this.carousels[carouselIndex].images.length;
+    this.currentIndexes[carouselIndex] = (this.currentIndexes[carouselIndex] + step) % totalSlides;
   }
 
-  setSlide(carousel: number, index: number): void {
-    if (carousel === 1) {
-      this.currentIndex1 = index;
-    } else if (carousel === 2) {
-      this.currentIndex2 = index;
-    } else if (carousel === 3) {
-      this.currentIndex3 = index;
-    }
+  setSlide(carouselIndex: number, index: number): void {
+    this.currentIndexes[carouselIndex] = index;
   }
 }

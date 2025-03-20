@@ -1,1 +1,11 @@
-<section class="collection"></section>
+<section class="collection">
+    <div class="gallery-container">
+      <div *ngFor="let image of images" class="gallery-item">
+        <img [src]="image.src" [alt]="image.alt" />
+        <div class="overlay">
+          <span>{{ image.alt }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  
