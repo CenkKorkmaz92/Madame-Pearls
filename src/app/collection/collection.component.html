@@ -1,4 +1,4 @@
-<section class="collection">
+<section class="collection" id="collection">
     <div class="gallery-container">
       <div *ngFor="let image of images" class="gallery-item">
         <img [src]="image.src" [alt]="image.alt" />
@@ -6,6 +6,11 @@
           <span>{{ image.alt }}</span>
         </div>
       </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="line"></div>
+      <div class="arrow" (click)="scrollToAbout()">&#x2193;</div>
+      <div class="line"></div>
     </div>
   </section>
   

@@ -10,15 +10,22 @@ import { CommonModule } from '@angular/common'; // Import this!
 })
 export class CollectionComponent {
   images = [
-    { src: 'assets/images/jewelry1.webp', alt: 'Gold Necklace' },
-    { src: 'assets/images/bracelet1.webp', alt: 'Handmade Bracelet' },
-    { src: 'assets/images/necklace1.webp', alt: 'Elegant Pearl Necklace' },
-    { src: 'assets/images/jewelry2.webp', alt: 'Silver Earrings' },
-    { src: 'assets/images/jewelry1.webp', alt: 'Gold Necklace' },
-    { src: 'assets/images/bracelet1.webp', alt: 'Handmade Bracelet' },
-    { src: 'assets/images/necklace1.webp', alt: 'Elegant Pearl Necklace' },
-    { src: 'assets/images/jewelry2.webp', alt: 'Silver Earrings' },
-    { src: 'assets/images/necklace1.webp', alt: 'Elegant Pearl Necklace' },
-    { src: 'assets/images/jewelry2.webp', alt: 'Silver Earrings' },
+    { src: '', alt: 'Gold Necklace' },
+    { src: '', alt: 'Handmade Bracelet' },
+    { src: '', alt: 'Elegant Pearl Necklace' },
+    { src: '', alt: 'Silver Earrings' },
+    { src: '', alt: 'Gold Necklace' },
+    { src: '', alt: 'Handmade Bracelet' },
+    { src: '', alt: 'Elegant Pearl Necklace' },
+    { src: '', alt: 'Silver Earrings' },
+    { src: '', alt: 'Elegant Pearl Necklace' },
+    { src: '', alt: 'Silver Earrings' },
   ];
+
+  scrollToAbout(): void {
+    const collectionElement = document.getElementById('about');
+    if (collectionElement) {
+      collectionElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  } 
 }

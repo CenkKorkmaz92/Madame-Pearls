@@ -1,7 +1,7 @@
 <section class="hero" id="home">
   <ng-container *ngFor="let carousel of carousels; let cIndex = index">
     <div class="hero-content">
-      <span *ngIf="cIndex === 0">Handmade Jewelry. With Materials from a Volcano in Greece.</span>
+      <span *ngIf="cIndex === 0">Handmade Jewelry. With Materials from Santorini in Greece.</span>
       <span *ngIf="cIndex === 1">Discover handcrafted jewelry that defines luxury.</span>
       <span *ngIf="cIndex === 2">Each piece is made with passion. For Ladies, Gentlemen, and Kids.</span>
 
@@ -21,4 +21,9 @@
       </div>
     </div>
   </ng-container>
+  <div class="scroll-indicator">
+    <div class="line"></div>
+    <div class="arrow" (click)="scrollToCollection()">&#x2193;</div>
+    <div class="line"></div>
+  </div>   
 </section>

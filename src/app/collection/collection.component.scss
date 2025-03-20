@@ -1,6 +1,6 @@
 .collection {
     position: relative;
-    height: calc(100vh - 122px);
+    height: calc(100vh);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -77,5 +77,46 @@
 
     &:hover .overlay {
         opacity: 1;
+    }
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 20px;
+    /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.scroll-indicator .line {
+    flex: 0 0 50px;
+    height: 2px;
+    background: #ffe7d3;
+}
+
+.scroll-indicator .arrow {
+    font-size: 24px;
+    color: #ffe7d3;
+    padding: 8px;
+    border: 2px solid #ffe7d3;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
     }
 }

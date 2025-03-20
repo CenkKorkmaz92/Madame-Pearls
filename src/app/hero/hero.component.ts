@@ -18,8 +18,8 @@ export class HeroComponent implements OnInit, OnDestroy {
     {
       images: [
         './assets/images/materials/material_1.webp',
-        './assets/images/materials/material_2.webp',
-        './assets/images/materials/material_3.webp'
+        './assets/images/materials/santorini.jpg',
+        './assets/images/materials/santorini_view.jpg'
       ],
       alt: 'Volcano Material'
     },
@@ -86,4 +86,11 @@ export class HeroComponent implements OnInit, OnDestroy {
       this.userInteracted[carouselIndex] = false;
     }, 15000);
   }
+
+  scrollToCollection(): void {
+    const collectionElement = document.getElementById('collection');
+    if (collectionElement) {
+      collectionElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  }  
 }
