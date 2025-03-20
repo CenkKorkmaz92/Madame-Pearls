@@ -29,7 +29,7 @@ html {
 }
 
 span {
-  font-size: 20px;
+  font-size: 24px;
 }
 
 .hero-content {
@@ -68,10 +68,8 @@ span {
 
 .slide img {
   width: 100%;
-  max-width: 250px;
-  height: auto;
+  max-width: 320px;
   border-radius: 10px;
-  object-fit: cover;
 }
 
 /* Navigation Controls */
@@ -145,6 +143,10 @@ button {
   align-items: center;
   justify-content: center;
   animation: bounce 2s infinite;
+}
+
+.arrow:hover {
+  cursor: pointer;
 }
 
 @keyframes bounce {
