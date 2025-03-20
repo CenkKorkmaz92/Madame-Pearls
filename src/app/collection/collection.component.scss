@@ -25,7 +25,6 @@
     }
 }
 
-/* Category Labels */
 .category-container {
     display: flex;
     justify-content: center;
@@ -60,7 +59,7 @@
 
 .gallery-item {
     position: relative;
-    width: 250px;
+    width: 300px;
     height: 300px;
     border-radius: 12px;
     overflow: hidden;
@@ -104,7 +103,6 @@
     }
 }
 
-/* Scroll Indicator */
 .scroll-indicator {
     position: absolute;
     bottom: 20px;
@@ -135,28 +133,23 @@
 }
 
 @keyframes bounce {
-
-    0%,
-    100% {
+    0%, 100% {
         transform: translateY(0);
     }
-
     50% {
         transform: translateY(-10px);
     }
 }
 
-/* Category Section: Contains Label + Gallery Item */
 .category-section {
     display: flex;
     justify-content: center;
     gap: 40px;
-    width: 80%;
+    width: 100%;
     margin-top: 20px;
     flex-wrap: wrap;
 }
 
-/* Category Group: Aligns Label Above Image */
 .category-group {
     display: flex;
     flex-direction: column;
@@ -164,7 +157,6 @@
     gap: 20px;
 }
 
-/* Category Label */
 .category-label {
     font-size: 24px;
     font-weight: bold;
@@ -176,10 +168,9 @@
     width: max-content;
 }
 
-/* Gallery Item */
 .gallery-item {
     position: relative;
-    width: 250px;
+    width: 300px;
     height: 300px;
     border-radius: 12px;
     overflow: hidden;
@@ -223,42 +214,64 @@
     opacity: 1;
 }
 
-/* Modal Styles */
 .modal {
+    position: fixed;
+    top: 116px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 106px);
+    background: rgba(0, 0, 0, 0.8);
     display: flex;
     align-items: center;
     justify-content: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+    overflow: auto;
+
+    h2 {
+        margin: 0;
+    }
+}
+
+html.modal-open,
+body.modal-open {
+    overflow: hidden !important;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
     background: rgba(0, 0, 0, 0.5);
-    padding: 20px;
     border-radius: 10px;
-    max-width: 80%;
-    text-align: center;
+    border: solid 2px #ffe7d3;
+    max-width: 90%;
+    max-height: calc(90vh - 126px);
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
 }
 
 .modal-gallery {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
-    gap: 10px;
+    justify-content: center;
+    gap: 20px;
+    overflow-y: auto;
+    max-height: calc(100vh - 186px);
+    padding: 20px;
 }
 
 .modal-gallery img {
-    width: 100px;
+    width: 250px;
+    height: auto;
+    object-fit: contain;
     border-radius: 8px;
-    transition: transform 0.3s ease;
+    border: solid 2px #ffe7d3;
+    transition: transform 0.2s ease-in-out;
+    background: #000;
 }
 
 .modal-gallery img:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .close {
@@ -267,5 +280,5 @@
     right: 20px;
     font-size: 1.5rem;
     cursor: pointer;
-    color: black;
+    color: white;
 }

@@ -76,9 +76,13 @@ export class CollectionComponent {
   openModal(category: any): void {
     this.selectedCategory = category;
     this.isModalOpen = true;
+    document.documentElement.style.overflow = 'hidden'; // Prevents background scrolling
+    document.body.style.overflow = 'hidden';
   }
 
   closeModal(): void {
     this.isModalOpen = false;
+    document.documentElement.style.overflow = ''; // Restore scrolling
+    document.body.style.overflow = '';
   }
 }

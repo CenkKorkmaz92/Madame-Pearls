@@ -16,3 +16,36 @@
   body, html {
     margin: 0;
 }
+
+/* Custom Scrollbar - Thin & Modern */
+::-webkit-scrollbar {
+    width: 6px; /* Thin scrollbar */
+}
+
+/* Hide Scrollbar Arrows */
+::-webkit-scrollbar-button {
+    display: none; /* Removes up/down or left/right arrows */
+}
+
+/* Scrollbar Track (Background) */
+::-webkit-scrollbar-track {
+    background: #1c1c1c; /* Dark background */
+    border-radius: 10px;
+}
+
+/* Scrollbar Thumb (Moving part) */
+::-webkit-scrollbar-thumb {
+    background: #ffe7d3; /* Light moving part */
+    border-radius: 10px;
+}
+
+/* Scrollbar Thumb on Hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 231, 211, 0.8); /* Slightly transparent on hover */
+}
+
+/* Firefox Scrollbar */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #ffe7d3 #1c1c1c;
+}

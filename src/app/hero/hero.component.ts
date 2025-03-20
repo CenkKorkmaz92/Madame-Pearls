@@ -33,9 +33,9 @@ export class HeroComponent implements OnInit, OnDestroy {
     },
     {
       images: [
-        './assets/images/men/men_7.webp',
-        './assets/images/women/women_2.webp',
-        './assets/images/kids/kids_1.webp'
+        './assets/images/collection/men/men_7.webp',
+        './assets/images/collection/women/women_2.webp',
+        './assets/images/collection/kids/kids_1.webp'
       ],
       alt: 'Bracelet Collection'
     }
