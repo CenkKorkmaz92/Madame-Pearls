@@ -1,12 +1,62 @@
 <section class="hero">
+  <!-- First Carousel -->
   <div class="hero-content">
-    <h1>Madame Pearls</h1>
-    <p>Discover handcrafted jewelry that defines luxury.</p>
+    <span>Handmade Jewelry. With Materials from a Volcano located in Greece. Added with some Ornaments and Pearls to bring the Bracelet a unique look.</span>
     <div class="carousel">
-      <div class="carousel-container" [style.transform]="'translateX(' + (-currentIndex * 100) + '%)'">
-        <div class="slide" *ngFor="let image of images">
+      <div class="carousel-container" [style.transform]="'translateX(' + (-currentIndex1 * 100) + '%)'">
+        <div class="slide" *ngFor="let image of images1">
+          <img [src]="image" alt="Volcano Material">
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <button (click)="moveSlide(1, -1)">&#10094;</button>
+        <span *ngFor="let image of images1; let i = index" class="dot" [class.active]="i === currentIndex1"
+          (click)="setSlide(1, i)">
+        </span>
+        <button (click)="moveSlide(1, 1)">&#10095;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Second Carousel -->
+  <div class="hero-content">
+    <div class="headline-container">
+      <div>•</div>
+      <h1>Madame Pearls</h1>
+      <div>•</div>
+    </div>
+    <span>Discover handcrafted jewelry that defines luxury.</span>
+    <div class="carousel">
+      <div class="carousel-container" [style.transform]="'translateX(' + (-currentIndex2 * 100) + '%)'">
+        <div class="slide" *ngFor="let image of images2">
           <img [src]="image" alt="Jewelry">
         </div>
+      </div>
+      <div class="carousel-controls">
+        <button (click)="moveSlide(2, -1)">&#10094;</button>
+        <span *ngFor="let image of images2; let i = index" class="dot" [class.active]="i === currentIndex2"
+          (click)="setSlide(2, i)">
+        </span>
+        <button (click)="moveSlide(2, 1)">&#10095;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Third Carousel -->
+  <div class="hero-content">
+    <span>Each piece is made with passion.<br> For Ladies, Gentlemen and Kids.</span>
+    <div class="carousel">
+      <div class="carousel-container" [style.transform]="'translateX(' + (-currentIndex3 * 100) + '%)'">
+        <div class="slide" *ngFor="let image of images3">
+          <img [src]="image" alt="Bracelet Collection">
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <button (click)="moveSlide(3, -1)">&#10094;</button>
+        <span *ngFor="let image of images3; let i = index" class="dot" [class.active]="i === currentIndex3"
+          (click)="setSlide(3, i)">
+        </span>
+        <button (click)="moveSlide(3, 1)">&#10095;</button>
       </div>
     </div>
   </div>
