@@ -9,43 +9,36 @@
     font-style: normal;
   }
   
-  body {
-    font-family: 'Cormorant SC', serif;
-
-  }
   body, html {
     margin: 0;
+    font-family: 'Cormorant SC', serif;
+    scroll-behavior: smooth;
 }
 
-/* Custom Scrollbar - Thin & Modern */
+/* Custom Scrollbar - Hidden but keeps scrolling */
 ::-webkit-scrollbar {
-    width: 6px; /* Thin scrollbar */
+    width: 0px; /* Hides the scrollbar */
+    height: 0px;
 }
 
 /* Hide Scrollbar Arrows */
 ::-webkit-scrollbar-button {
-    display: none; /* Removes up/down or left/right arrows */
+    display: none;
 }
 
-/* Scrollbar Track (Background) */
+/* Hide Scrollbar Track (Background) */
 ::-webkit-scrollbar-track {
-    background: #1c1c1c; /* Dark background */
-    border-radius: 10px;
+    background: transparent;
 }
 
-/* Scrollbar Thumb (Moving part) */
+/* Hide Scrollbar Thumb (Moving part) */
 ::-webkit-scrollbar-thumb {
-    background: #ffe7d3; /* Light moving part */
+    background: transparent;
     border-radius: 10px;
 }
 
-/* Scrollbar Thumb on Hover */
-::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 231, 211, 0.8); /* Slightly transparent on hover */
-}
-
-/* Firefox Scrollbar */
+/* Firefox: Hide scrollbar but keep scrolling */
 * {
-    scrollbar-width: thin;
-    scrollbar-color: #ffe7d3 #1c1c1c;
+    scrollbar-width: none; /* Removes scrollbar in Firefox */
+    scrollbar-color: transparent transparent;
 }
