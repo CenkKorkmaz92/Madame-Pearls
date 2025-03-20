@@ -1,16 +1,35 @@
 <section class="collection" id="collection">
-    <div class="gallery-container">
-      <div *ngFor="let image of images" class="gallery-item">
-        <img [src]="image.src" [alt]="image.alt" />
+  <!-- Container for Category Sections -->
+  <div class="category-section">
+    <div *ngFor="let category of categories" class="category-group">
+      <!-- Label Above the Gallery Item -->
+      <div class="category-label">{{ category.label }}</div>
+
+      <!-- Jewelry Image (Clickable to Open Modal) -->
+      <div class="gallery-item" (click)="openModal(category)">
+        <img [src]="category.imgSrc" [alt]="category.label" />
         <div class="overlay">
-          <span>{{ image.alt }}</span>
+          <span>View Collection</span>
         </div>
       </div>
     </div>
-    <div class="scroll-indicator">
-      <div class="line"></div>
-      <div class="arrow" (click)="scrollToAbout()">&#x2193;</div>
-      <div class="line"></div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="scroll-indicator">
+    <div class="line"></div>
+    <div class="arrow" (click)="scrollToAbout()">&#x2193;</div>
+    <div class="line"></div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" *ngIf="isModalOpen" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <h2>{{ selectedCategory.label }}</h2>
+      <div class="modal-gallery">
+        <img *ngFor="let img of selectedCategory.images" [src]="img" alt="Jewelry Image" />
+      </div>
     </div>
-  </section>
-  
+  </div>
+</section>
