@@ -1,6 +1,8 @@
+// navbar.component.ts
 import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ModalService } from '../../modal.service';
 
 @Component({
   selector: 'app-navbar',
@@ -15,6 +17,8 @@ export class NavbarComponent {
   selectedLanguage = 'en';
   selectedLanguageLabel = '🇺🇸 English';
 
+  constructor(private modalService: ModalService) { }
+
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
@@ -26,7 +30,6 @@ export class NavbarComponent {
   selectLanguage(lang: string) {
     this.selectedLanguage = lang;
     this.dropdownOpen = false;
-
     switch (lang) {
       case 'en':
         this.selectedLanguageLabel = '🇺🇸 English';
@@ -41,8 +44,11 @@ export class NavbarComponent {
         this.selectedLanguageLabel = '🇭🇷 Kroatisch';
         break;
     }
-
     console.log(`Language changed to: ${this.selectedLanguage}`);
+  }
+
+  onNavbarButtonClick() {
+    this.modalService.triggerCloseModal();
   }
 
   @HostListener('document:click', ['$event'])

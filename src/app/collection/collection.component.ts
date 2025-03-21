@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+// collection.component.ts
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ModalService } from '../../modal.service';
 
 @Component({
   selector: 'app-collection',
@@ -8,7 +10,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './collection.component.html',
   styleUrls: ['./collection.component.scss'],
 })
-export class CollectionComponent {
+export class CollectionComponent implements OnInit {
   isModalOpen = false;
   selectedCategory: any = {};
 
@@ -65,6 +67,16 @@ export class CollectionComponent {
       ],
     },
   ];
+
+  constructor(private modalService: ModalService) {}
+
+  ngOnInit(): void {
+    this.modalService.closeModal$.subscribe(() => {
+      if (this.isModalOpen) {
+        this.closeModal();
+      }
+    });
+  }
 
   scrollToAbout(): void {
     const collectionElement = document.getElementById('about');
