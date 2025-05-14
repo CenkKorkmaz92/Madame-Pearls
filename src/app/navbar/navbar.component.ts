@@ -35,13 +35,13 @@ export class NavbarComponent {
         this.selectedLanguageLabel = '🇺🇸 English';
         break;
       case 'de':
-        this.selectedLanguageLabel = '🇩🇪 German';
+        this.selectedLanguageLabel = '🇩🇪 Deutsch';
         break;
       case 'gr':
-        this.selectedLanguageLabel = '🇬🇷 Greek';
+        this.selectedLanguageLabel = '🇬🇷 Ελληνικά';
         break;
       case 'hr':
-        this.selectedLanguageLabel = '🇭🇷 Kroatisch';
+        this.selectedLanguageLabel = '🇭🇷 Hrvatski';
         break;
     }
     console.log(`Language changed to: ${this.selectedLanguage}`);
@@ -62,6 +62,13 @@ export class NavbarComponent {
       ) {
         this.dropdownOpen = false;
       }
+    }
+  }
+
+  scrollToHome(): void {
+    const collectionElement = document.getElementById('home');
+    if (collectionElement) {
+      collectionElement.scrollIntoView({ behavior: 'smooth' });
     }
   }
 }
