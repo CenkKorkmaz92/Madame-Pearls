@@ -12,8 +12,9 @@
 .footer-content {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
+  padding: 8px 16px;
 }
 
 .business-info {
@@ -33,23 +34,42 @@
 .social-icon {
   width: 48px;
   height: auto;
-}
-
-.legal-links {
+  border: solid 2px #ffe7d3;
+  border-radius: 5px;
   transition: transform 0.3s ease-in-out;
 
-  a {
-    text-decoration: none;
-    color: #ffe7d3;
-    font-size: 20px;
+  &:hover {
+    transform: scale(1.1);
   }
 }
 
-.legal-links li {
-  transition: transform 0.3s ease-in-out;
-}
+.legal-links {
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+  }
 
-.legal-links li:hover {
-  transform: scale(1.1);
-  text-shadow: 1px 1px 2px #1c1c1c;
+  li {
+    font-size: 20px;
+    transition: transform 0.3s ease-in-out;
+
+    a {
+      text-decoration: none;
+      color: #ffe7d3;
+      transition: color 0.3s ease-in-out;
+
+      &:hover {
+        transform: scale(1.1);
+        text-shadow: 1px 1px 2px #1c1c1c;
+      }
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
 }

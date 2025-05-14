@@ -8,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './contact.component.scss'
 })
 export class ContactComponent {
-
+scrollToFooter(): void {
+    const collectionElement = document.getElementById('footer');
+    if (collectionElement) {
+      collectionElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 }
