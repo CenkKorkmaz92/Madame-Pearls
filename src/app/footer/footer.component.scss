@@ -1,0 +1,55 @@
+.footer {
+  position: relative;
+  height: 122px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffe7d3;
+  background-color: #7b7671;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.business-info {
+  display: flex;
+  font-size: 28px;
+  font-weight: 400;
+  gap: 12px;
+}
+
+.business-info img {
+  width: 80px;
+  height: 80px;
+  border: solid 2px #ffe7d3;
+  border-radius: 5px;
+}
+
+.social-icon {
+  width: 48px;
+  height: auto;
+}
+
+.legal-links {
+  transition: transform 0.3s ease-in-out;
+
+  a {
+    text-decoration: none;
+    color: #ffe7d3;
+    font-size: 20px;
+  }
+}
+
+.legal-links li {
+  transition: transform 0.3s ease-in-out;
+}
+
+.legal-links li:hover {
+  transform: scale(1.1);
+  text-shadow: 1px 1px 2px #1c1c1c;
+}
