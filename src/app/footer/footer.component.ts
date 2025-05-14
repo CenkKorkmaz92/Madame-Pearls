@@ -5,8 +5,13 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.scss'
+  styleUrl: './footer.component.scss',
 })
 export class FooterComponent {
-
+  scrollToHome(): void {
+    const collectionElement = document.getElementById('home');
+    if (collectionElement) {
+      collectionElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 }
