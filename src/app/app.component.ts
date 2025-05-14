@@ -4,11 +4,13 @@ import { HeroComponent } from "./hero/hero.component";
 import { NavbarComponent } from './navbar/navbar.component';
 import { CollectionComponent } from "./collection/collection.component";
 import { AboutComponent } from "./about/about.component";
+import { ContactComponent } from './contact/contact.component';
+import { FooterComponent } from './footer/footer.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeroComponent, NavbarComponent, CollectionComponent, AboutComponent],
+  imports: [RouterOutlet, HeroComponent, NavbarComponent, CollectionComponent, AboutComponent, ContactComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
