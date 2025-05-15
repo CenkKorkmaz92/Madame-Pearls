@@ -1,8 +1,51 @@
 <section class="contact" id="contact">
-    <!-- Scroll Indicator -->
+  <!-- Scroll Indicator -->
   <div class="scroll-indicator">
     <div class="line"></div>
     <div class="arrow" (click)="scrollToFooter()">&#x2193;</div>
     <div class="line"></div>
+  </div>
+
+  <!-- Two-column layout -->
+  <div class="contact-content">
+    <!-- Left: Intro Text -->
+    <div class="contact-intro">
+      <h2>Contact Me</h2>
+      <p>I am happy to hear from you!</p>
+      <p>Have a Bracelet in mind or a question about our pieces?</p>
+      <p>Use the form to reach out — I’d love to hear from you!</p>
+      <p>Looking for handcrafted jewelry? Let's talk!</p>
+    </div>
+
+    <!-- Right: Contact Form -->
+    <div class="contact-form">
+      <h2>Send a Message</h2>
+      <form (submit)="onSubmit()" #contactForm="ngForm">
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          ngModel
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          ngModel
+          required
+        />
+        <textarea
+          name="message"
+          placeholder="Your Message"
+          rows="5"
+          ngModel
+          required
+        ></textarea>
+        <button type="submit" [disabled]="!contactForm.form.valid">
+          Send Message
+        </button>
+      </form>
+    </div>
   </div>
 </section>
