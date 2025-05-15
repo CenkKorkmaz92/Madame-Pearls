@@ -20,14 +20,19 @@
       <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" enctype="multipart/form-data">
         <input type="text" name="name" placeholder="Your Name" ngModel required />
         <input type="email" name="email" placeholder="Your Email" ngModel required />
-        <textarea class="message-textarea" name="message" placeholder="Your Message" rows="5" ngModel required></textarea>
+        <textarea class="message-textarea" name="message" placeholder="Your Message" rows="5" ngModel
+          required></textarea>
 
-        <input type="file" name="attachments" (change)="onFileChange($event)" accept="image/*" multiple />
+        <!-- Custom File Upload -->
+        <input type="file" id="fileUpload" name="attachments" (change)="onFileChange($event)" accept="image/*" multiple
+          hidden />
+        <label for="fileUpload" class="custom-file-label">📎 Upload Images</label>
 
-        <div class="file-preview-container" *ngIf="selectedFiles.length > 0">
+        <!-- Preview -->
+        <div class="file-preview-container" [class.has-files]="selectedFiles.length > 0" #filePreviewContainer>
           <div *ngFor="let file of selectedFiles; let i = index" class="file-item">
             <div class="file-info">
-              <p>{{ file.name }}</p>
+              <p>🖼️ {{ file.name }}</p>
               <button type="button" (click)="removeFile(i)" aria-label="Remove file">🗑️</button>
             </div>
           </div>
