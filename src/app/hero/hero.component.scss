@@ -39,6 +39,7 @@ span {
   width: 400px;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
+  border: 1px solid #ffe7d3;
   padding: 8px;
 
   h1 {
@@ -68,8 +69,9 @@ span {
 
 .slide img {
   width: 100%;
-  max-width: 320px;
+  max-width: 318px;
   border-radius: 10px;
+  border: 1px solid #ffe7d3;
 }
 
 /* Navigation Controls */
