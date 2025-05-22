@@ -1,8 +1,7 @@
-// navbar.component.ts
 import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ModalService } from '../../modal.service';
+import { ModalService } from '../modal.service';
 
 @Component({
   selector: 'app-navbar',
@@ -16,8 +15,14 @@ export class NavbarComponent {
   dropdownOpen = false;
   selectedLanguage = 'en';
   selectedLanguageLabel = '🇺🇸 English';
+  modalIsOpen = false; // <--- NEU
 
-  constructor(private modalService: ModalService) { }
+  constructor(private modalService: ModalService) {
+    // <--- REAGIERT AUF MODALSTATUS
+    this.modalService.modalOpen$.subscribe(open => {
+      this.modalIsOpen = open;
+    });
+  }
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FavoritesService } from '../favorites.service';
+import { ModalService } from '../modal.service'; // <--- NEU
 
 @Component({
   selector: 'app-collection',
@@ -72,8 +73,12 @@ export class CollectionComponent implements OnInit {
   ];
 
   favoriteImages: string[] = [];
+  readonly MAX_FAVORITES = 10;
 
-  constructor(private favoritesService: FavoritesService) { }
+  constructor(
+    private favoritesService: FavoritesService,
+    private modalService: ModalService // <--- NEU
+  ) { }
 
   ngOnInit(): void {
     this.favoritesService.favorites$.subscribe(favs => {
@@ -91,20 +96,20 @@ export class CollectionComponent implements OnInit {
   openModal(category: any): void {
     this.selectedCategory = category;
     this.isModalOpen = true;
-    document.documentElement.style.overflow = 'hidden'; // Prevents background scrolling
+    document.documentElement.style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
+    this.modalService.setModalOpen(true); // <--- HIER
   }
 
   closeModal(): void {
     this.isModalOpen = false;
     document.documentElement.style.overflow = '';
     document.body.style.overflow = '';
+    this.modalService.setModalOpen(false); // <--- HIER
   }
 
-  readonly MAX_FAVORITES = 10;
-
   toggleFavorite(imgUrl: string, event: Event): void {
-    event.stopPropagation(); // Prevents opening modal if clicking star
+    event.stopPropagation();
     const idx = this.favoriteImages.indexOf(imgUrl);
 
     if (idx > -1) {

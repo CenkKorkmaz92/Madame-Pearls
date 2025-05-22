@@ -117,3 +117,22 @@
 .dropdown-options li:hover {
   background-color: #7b7671;
 }
+
+.nav-links.blocked,
+.nav-links.blocked * {
+  pointer-events: none !important;
+  opacity: 0.6;
+  user-select: none;
+}
+
+.nav-links .disabled {
+  color: #aaa !important;
+  cursor: not-allowed !important;
+  text-shadow: none !important;
+}
+
+.custom-select.disabled {
+  pointer-events: none !important;
+  opacity: 0.5;
+  cursor: not-allowed !important;
+}

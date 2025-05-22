@@ -1,28 +1,33 @@
 <nav class="navbar">
     <!-- Left: Logo/Icon -->
     <div class="left-header-container">
-        <img class="logo" id="logo" (click)="scrollToHome()" src="../../assets/images/logo/logo.webp" alt="Logo">
+        <img class="logo" id="logo" (click)="!modalIsOpen && scrollToHome()" src="../../assets/images/logo/logo.webp"
+            alt="Logo">
         <p>Madame<br>Pearls</p>
     </div>
 
     <!-- Center: Navigation Menu -->
-    <ul class="nav-links">
+    <ul class="nav-links" [class.blocked]="modalIsOpen">
         <li class="spacer">•</li>
-        <li><a href="#home" (click)="onNavbarButtonClick()">Home</a></li>
+        <li><a href="#home" (click)="!modalIsOpen && onNavbarButtonClick()" [class.disabled]="modalIsOpen"
+                [attr.tabindex]="modalIsOpen ? -1 : null">Home</a></li>
         <li class="spacer">•</li>
-        <li><a href="#collection" (click)="onNavbarButtonClick()">Collection</a></li>
+        <li><a href="#collection" (click)="!modalIsOpen && onNavbarButtonClick()" [class.disabled]="modalIsOpen"
+                [attr.tabindex]="modalIsOpen ? -1 : null">Collection</a></li>
         <li class="spacer">•</li>
-        <li><a href="#about" (click)="onNavbarButtonClick()">About</a></li>
+        <li><a href="#about" (click)="!modalIsOpen && onNavbarButtonClick()" [class.disabled]="modalIsOpen"
+                [attr.tabindex]="modalIsOpen ? -1 : null">About</a></li>
         <li class="spacer">•</li>
-        <li><a href="#contact" (click)="onNavbarButtonClick()">Contact</a></li>
+        <li><a href="#contact" (click)="!modalIsOpen && onNavbarButtonClick()" [class.disabled]="modalIsOpen"
+                [attr.tabindex]="modalIsOpen ? -1 : null">Contact</a></li>
         <li class="spacer">•</li>
     </ul>
 
     <!-- Right: Language Selector -->
     <div class="lang-container">
-        <div class="custom-select" (click)="toggleDropdown()">
+        <div class="custom-select" (click)="!modalIsOpen && toggleDropdown()" [class.disabled]="modalIsOpen">
             {{ selectedLanguageLabel }}
-            <ul *ngIf="dropdownOpen" class="dropdown-options">
+            <ul *ngIf="dropdownOpen && !modalIsOpen" class="dropdown-options">
                 <li (click)="selectLanguage('en')">🇺🇸 English</li>
                 <li (click)="selectLanguage('de')">🇩🇪 Deutsch</li>
                 <li (click)="selectLanguage('gr')">🇬🇷 Ελληνικά</li>
