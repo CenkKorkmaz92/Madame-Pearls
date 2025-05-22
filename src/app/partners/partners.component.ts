@@ -8,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './partners.component.scss'
 })
 export class PartnersComponent {
-
+  scrollToFooter(): void {
+    const footer = document.getElementById('footer');
+    if (footer) {
+      footer.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 }

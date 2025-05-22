@@ -50,8 +50,8 @@ export class ContactComponent implements AfterViewInit {
     }
   }
 
-  scrollToFooter(): void {
-    const footer = document.getElementById('footer');
+  scrollToPartners(): void {
+    const footer = document.getElementById('partners');
     if (footer) {
       footer.scrollIntoView({ behavior: 'smooth' });
     }
