@@ -1,7 +1,6 @@
-// collection.component.ts
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ModalService } from '../../modal.service';
+import { FavoritesService } from '../favorites.service';
 
 @Component({
   selector: 'app-collection',
@@ -18,7 +17,7 @@ export class CollectionComponent implements OnInit {
     {
       label: 'Gentlemen',
       imgSrc: '../../assets/images/collection/men/men_6.webp',
-      "images": [
+      images: [
         "../../assets/images/collection/men/men_1.webp",
         "../../assets/images/collection/men/men_2.webp",
         "../../assets/images/collection/men/men_3.webp",
@@ -54,7 +53,11 @@ export class CollectionComponent implements OnInit {
     {
       label: 'Kids',
       imgSrc: '../../assets/images/collection/kids/kids_1.webp',
-      images: ['assets/images/kids1.jpg', 'assets/images/kids2.jpg', 'assets/images/kids3.jpg'],
+      images: [
+        'assets/images/kids1.jpg',
+        'assets/images/kids2.jpg',
+        'assets/images/kids3.jpg'
+      ],
     },
     {
       label: 'For Everyone',
@@ -68,13 +71,13 @@ export class CollectionComponent implements OnInit {
     },
   ];
 
-  constructor(private modalService: ModalService) {}
+  favoriteImages: string[] = [];
+
+  constructor(private favoritesService: FavoritesService) { }
 
   ngOnInit(): void {
-    this.modalService.closeModal$.subscribe(() => {
-      if (this.isModalOpen) {
-        this.closeModal();
-      }
+    this.favoritesService.favorites$.subscribe(favs => {
+      this.favoriteImages = favs;
     });
   }
 
@@ -94,7 +97,33 @@ export class CollectionComponent implements OnInit {
 
   closeModal(): void {
     this.isModalOpen = false;
-    document.documentElement.style.overflow = ''; // Restore scrolling
+    document.documentElement.style.overflow = '';
     document.body.style.overflow = '';
+  }
+
+  readonly MAX_FAVORITES = 10;
+
+  toggleFavorite(imgUrl: string, event: Event): void {
+    event.stopPropagation(); // Prevents opening modal if clicking star
+    const idx = this.favoriteImages.indexOf(imgUrl);
+
+    if (idx > -1) {
+      this.favoriteImages.splice(idx, 1);
+    } else {
+      if (this.favoriteImages.length >= this.MAX_FAVORITES) {
+        alert(`Du kannst maximal ${this.MAX_FAVORITES} Favoriten auswählen.`);
+        return;
+      }
+      this.favoriteImages.push(imgUrl);
+    }
+    this.syncFavorites();
+  }
+
+  isFavorite(imgUrl: string): boolean {
+    return this.favoriteImages.includes(imgUrl);
+  }
+
+  syncFavorites() {
+    this.favoritesService.setFavorites(this.favoriteImages);
   }
 }

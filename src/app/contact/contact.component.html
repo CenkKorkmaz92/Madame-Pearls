@@ -17,23 +17,35 @@
 
     <div class="contact-form">
       <h2>Send a Message</h2>
-      <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" enctype="multipart/form-data">
+      <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
         <input type="text" name="name" placeholder="Your Name" ngModel required />
         <input type="email" name="email" placeholder="Your Email" ngModel required />
         <textarea class="message-textarea" name="message" placeholder="Your Message" rows="5" ngModel
           required></textarea>
 
-        <!-- Custom File Upload -->
-        <input type="file" id="fileUpload" name="attachments" (change)="onFileChange($event)" accept="image/*" multiple
-          hidden />
-        <label for="fileUpload" class="custom-file-label">📎 Upload Images</label>
+        <div *ngIf="favoriteImages.length > 0" class="favorites-hint">
+          <span>Folgende Bilder aus der Kollektion hast du als Favorit hinzugefügt:</span>
+        </div>
 
-        <!-- Preview -->
-        <div class="file-preview-container" [class.has-files]="selectedFiles.length > 0" #filePreviewContainer>
-          <div *ngFor="let file of selectedFiles; let i = index" class="file-item">
-            <div class="file-info">
-              <p>🖼️ {{ file.name }}</p>
-              <button type="button" (click)="removeFile(i)" aria-label="Remove file">🗑️</button>
+        <div *ngIf="favoriteImages.length === 0" class="favorites-empty">
+          <em>Du kannst Bilder aus der Kollektion auswählen und sie deiner Nachricht als Favorit beifügen.</em>
+        </div>
+
+        <!-- Favorisierte Bilder Vorschau -->
+        <div class="favorites-preview" *ngIf="favoriteImages.length > 0" #filePreviewContainer>
+          <div *ngFor="let img of favoriteImages; let i = index" class="favorite-image">
+            <img [src]="img" alt="Favorisiertes Bild" (click)="openPreview(img, i)" tabindex="0" />
+            <button type="button" (click)="removeFavoriteImage(i)" aria-label="Remove">🗑️</button>
+          </div>
+        </div>
+
+        <!-- Modal für die Großansicht -->
+        <div class="image-modal" *ngIf="previewImage" (click)="closePreview()">
+          <div class="image-modal-content" (click)="$event.stopPropagation()">
+            <img [src]="previewImage" alt="Großansicht Favorit" />
+            <div class="modal-actions">
+              <button class="remove-btn" (click)="removePreviewImage()" aria-label="Entfernen">🗑️ Entfernen</button>
+              <button class="close-btn" (click)="closePreview()" aria-label="Schließen">Schließen</button>
             </div>
           </div>
         </div>

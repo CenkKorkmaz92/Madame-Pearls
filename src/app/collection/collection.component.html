@@ -28,7 +28,12 @@
       <span class="close" (click)="closeModal()">&times;</span>
       <h2>{{ selectedCategory.label }}</h2>
       <div class="modal-gallery">
-        <img *ngFor="let img of selectedCategory.images" [src]="img" alt="Jewelry Image" />
+        <div *ngFor="let img of selectedCategory.images" class="modal-img-container">
+          <img [src]="img" alt="Jewelry Image" />
+          <button class="favorite-star" type="button" title="Für das Kontaktformular markieren" (click)="toggleFavorite(img, $event)">
+            <span [ngClass]="{'favorited': isFavorite(img)}">★</span>
+          </button>
+        </div>
       </div>
     </div>
   </div>

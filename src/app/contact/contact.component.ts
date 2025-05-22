@@ -6,6 +6,7 @@ import {
 } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { FavoritesService } from '../favorites.service';
 
 @Component({
   selector: 'app-contact',
@@ -15,9 +16,19 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./contact.component.scss'],
 })
 export class ContactComponent implements AfterViewInit {
-  selectedFiles: File[] = [];
+  favoriteImages: string[] = [];
 
   @ViewChild('filePreviewContainer') filePreviewContainer!: ElementRef;
+
+  // Für die Vorschau (Modal)
+  previewImage: string | null = null;
+  previewImageIndex: number | null = null;
+
+  constructor(private favoritesService: FavoritesService) {
+    this.favoritesService.favorites$.subscribe(favs => {
+      this.favoriteImages = favs;
+    });
+  }
 
   ngAfterViewInit(): void {
     const el = this.filePreviewContainer?.nativeElement;
@@ -46,39 +57,53 @@ export class ContactComponent implements AfterViewInit {
     }
   }
 
-  onFileChange(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    if (input.files) {
-      this.selectedFiles = [...this.selectedFiles, ...Array.from(input.files)];
-    }
-  }
-
-  removeFile(index: number): void {
-    this.selectedFiles.splice(index, 1);
+  removeFavoriteImage(index: number) {
+    this.favoriteImages.splice(index, 1);
+    this.favoritesService.setFavorites(this.favoriteImages);
   }
 
   onSubmit(form: NgForm): void {
     if (form.invalid) return;
 
-    const formData = new FormData();
-    formData.append('name', form.value.name);
-    formData.append('email', form.value.email);
-    formData.append('message', form.value.message);
-
-    this.selectedFiles.forEach((file) => {
-      formData.append('attachments', file);
-    });
-
+    // Hier werden nur die URLs der Favoriten mitgeschickt!
     console.log('Submitting form:', {
       name: form.value.name,
       email: form.value.email,
       message: form.value.message,
-      files: this.selectedFiles.map((f) => f.name),
+      favoriteImages: this.favoriteImages
     });
 
     alert('Thank you for your message!');
 
     form.resetForm();
-    this.selectedFiles = [];
+    this.favoritesService.clearFavorites();
+  }
+
+  // --------- Modal Vorschau für Favoriten -----------
+  openPreview(img: string, index: number) {
+    this.previewImage = img;
+    this.previewImageIndex = index;
+    document.body.style.overflow = 'hidden'; // Scrolling verhindern
+    window.addEventListener('keydown', this.handlePreviewKeydown);
+  }
+
+  closePreview() {
+    this.previewImage = null;
+    this.previewImageIndex = null;
+    document.body.style.overflow = '';
+    window.removeEventListener('keydown', this.handlePreviewKeydown);
+  }
+
+  handlePreviewKeydown = (event: KeyboardEvent) => {
+    if (event.key === 'Escape') {
+      this.closePreview();
+    }
+  };
+
+  removePreviewImage() {
+    if (this.previewImageIndex !== null) {
+      this.removeFavoriteImage(this.previewImageIndex);
+      this.closePreview();
+    }
   }
 }
