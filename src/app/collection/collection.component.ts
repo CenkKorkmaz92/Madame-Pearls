@@ -73,7 +73,7 @@ export class CollectionComponent implements OnInit {
   ];
 
   favoriteImages: string[] = [];
-  readonly MAX_FAVORITES = 10;
+  readonly MAX_FAVORITES = 5;
 
   constructor(
     private favoritesService: FavoritesService,
