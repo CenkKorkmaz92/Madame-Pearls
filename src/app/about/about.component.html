@@ -1,3 +1,21 @@
 <section class="about" id="about">
+  <!-- Picture of VA -->
+  <div class="profile-img-container">
+    <img class="profile-img" src="../../assets/images/profile-img.webp" alt="img Vanessa" />
+  </div>
 
+  <!-- Bio Section -->
+  <div class="bio-section">
+    <h2>{{ translationService.t('about.heading') }}</h2>
+    <p>{{ translationService.t('about.p1') }}</p>
+    <p>{{ translationService.t('about.p2') }}</p>
+    <p>{{ translationService.t('about.p3') }}</p>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="scroll-indicator">
+    <div class="line"></div>
+    <div class="arrow" (click)="scrollToContact()">&#x2193;</div>
+    <div class="line"></div>
+  </div>
 </section>

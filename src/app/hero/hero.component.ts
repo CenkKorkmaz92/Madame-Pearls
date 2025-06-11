@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslationService } from '../translation.service';
 
 @Component({
   selector: 'app-hero',
@@ -41,7 +42,7 @@ export class HeroComponent implements OnInit, OnDestroy {
     }
   ];
 
-  constructor(private ngZone: NgZone) { }
+  constructor(public translationService: TranslationService, private ngZone: NgZone) { }
 
   ngOnInit(): void {
     this.startAutoSlide();

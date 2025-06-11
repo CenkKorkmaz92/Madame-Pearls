@@ -1,0 +1,51 @@
+{
+  "navbar": {
+    "home": "Home",
+    "collection": "Collection",
+    "about": "About",
+    "contact": "Contact",
+    "partners": "Partners"
+  },
+  "hero": {
+    "line1": "Handmade Jewelry. With Materials from Santorini in Greece.",
+    "line2": "Discover handcrafted jewelry that defines luxury.",
+    "line3": "Each piece is made with passion. For Ladies, Gentlemen, and Kids."
+  },
+  "about": {
+    "heading": "Hi, I’m Vanesa – also known as <em>Madame Pearls</em>",
+    "p1": "Every bracelet and necklace in my shop is crafted by me with great attention to detail – from the very first idea to the final touch.",
+    "p2": "The inspiration for my jewelry came two years ago during a trip to Santorini with my husband, when he bought himself a pearl Bracelet.",
+    "p3": "Still on vacation, I started searching for lava bead suppliers and began sketching my first designs. What started as a spontaneous idea has since become my true passion: handmade jewelry that reflects character and personality – for people who love something special."
+  },
+  "collection": {
+    "viewCollection": "View Collection",
+    "markFavorite": "Mark for contact form"
+  },
+  "contact": {
+    "heading": "Contact Me",
+    "intro1": "I am happy to hear from you!",
+    "intro2": "Have a Bracelet in mind?",
+    "intro3": "Or a question about our pieces?",
+    "intro4": "Use the form to reach out — I’d love to hear from you!",
+    "intro5": "Looking for handcrafted jewelry? Let's talk!",
+    "sendMessage": "Send a Message",
+    "yourName": "Your Name",
+    "yourEmail": "Your Email",
+    "yourMessage": "Your Message",
+    "favoritesHint": "You have added the following images from the collection as favorites:",
+    "favoritesEmpty": "You can select images from the collection and attach them as favorites to your message.",
+    "remove": "Remove",
+    "close": "Close",
+    "contactMe": "Contact Me :)"
+  },
+  "footer": {
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy Policy"
+  },
+  "partners": {
+    "heading": "Our Partner Store in Croatia",
+    "intro1": "is a beautiful jewelry store in Croatia now offering our handcrafted jewelry.",
+    "intro2": "Visit them in Croatia if you are around or follow them online to explore what they do.",
+    "fbLink": "SilverGold Partner on Facebook"
+  }
+}

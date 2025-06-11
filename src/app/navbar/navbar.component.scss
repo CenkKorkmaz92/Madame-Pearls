@@ -1,116 +1,138 @@
 /* General Navbar Styles */
 .navbar {
-    position: fixed;
-    width: calc(100% - 32px);
-    top: 0;
-    left: 0;
-    background-color: #7b7671;
-    border-radius: 0 0 10px 10px;
-    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 1000;
-    padding: 8px 16px;
+  position: fixed;
+  width: calc(100% - 32px);
+  top: 0;
+  left: 0;
+  background-color: #7b7671;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  padding: 8px 16px;
 }
 
 .left-header-container {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 
-    p {
-        font-size: 24px;
-        font-weight: 400;
-        color: #ffe7d3;
-    }
+  p {
+    font-size: 24px;
+    font-weight: 400;
+    color: #ffe7d3;
+    pointer-events: none;
+  }
 }
 
 /* Logo */
 .logo {
-    display: flex;
-    width: 80px;
-    height: 80px;
-    border: solid 2px #ffe7d3;
-    border-radius: 5px;
+  display: flex;
+  width: 80px;
+  height: 80px;
+  border: solid 2px #ffe7d3;
+  border-radius: 5px;
 }
 
 /* Center Menu */
 .nav-links {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 15px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 
-    .spacer {
-        font-size: 28px;
-        color: #ffe7d3;
+  .spacer {
+    font-size: 28px;
+    color: #ffe7d3 !important;
+    pointer-events: none;
+  }
+
+  li {
+    font-size: 28px;
+    font-weight: 400;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+
+    a {
+      text-decoration: none;
+      color: #ffe7d3;
+      transition: color 0.3s ease-in-out;
     }
 
-    li {
-        font-size: 28px;
-        font-weight: 400;
-        position: relative;
-
-        a {
-            text-decoration: none;
-            color: #ffe7d3;
-            transition: color 0.3s ease-in-out;
-
-            &:hover {
-                color: #1c1c1c;
-            }
-        }
+    &:hover {
+      transform: scale(1.1);
+      color: #1c1c1c;
+      text-shadow: 1px 1px 2px #1c1c1c;
     }
+  }
 }
-
-
 
 /* Custom Dropdown Container */
 .custom-select {
-    width: 104px;
-    padding: 8px 12px;
-    border: 2px solid #ffe7d3;
-    border-radius: 5px;
-    background-color: #1c1c1c;
-    font-size: 20px;
-    color: #ffe7d3;
-    cursor: pointer;
-    position: relative;
-    display: inline-block;
-    text-align: center;
-    z-index: 100;
+  width: 105px;
+  padding: 8px 12px;
+  border: 2px solid #ffe7d3;
+  border-radius: 5px;
+  background-color: #1c1c1c;
+  font-size: 20px;
+  color: #ffe7d3;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  z-index: 100;
 }
 
 /* Dropdown Options */
 .dropdown-options {
-    position: absolute;
-    text-align: center;
-    background-color: #1c1c1c;
-    border: 2px solid white;
-    border-radius: 5px;
-    width: 98%;
-    /* Ensure it fits within the parent container */
-    left: 0;
-    /* Align the dropdown with the left edge of the select box */
-    top: 100%;
-    /* Position the dropdown just below the select box */
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: block;
-    z-index: 100;
+  position: absolute;
+  text-align: center;
+  background-color: #1c1c1c;
+  border: 2px solid white;
+  border-radius: 5px;
+  width: 98%;
+  /* Ensure it fits within the parent container */
+  left: 0;
+  /* Align the dropdown with the left edge of the select box */
+  top: 100%;
+  /* Position the dropdown just below the select box */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: block;
+  z-index: 100;
 }
 
 /* Style for Each Language Option */
 .dropdown-options li {
-    padding: 10px;
-    color: #ffe7d3;
-    cursor: pointer;
-    transition: background-color 0.31s ease-in-out;
+  padding: 10px;
+  color: #ffe7d3;
+  cursor: pointer;
+  transition: background-color 0.31s ease-in-out;
 }
 
 /* Hover Effect for Options */
 .dropdown-options li:hover {
-    background-color: #7b7671;
+  background-color: #7b7671;
+}
+
+.nav-links.blocked,
+.nav-links.blocked * {
+  pointer-events: none !important;
+  opacity: 0.6;
+  user-select: none;
+}
+
+.nav-links .disabled {
+  color: #aaa !important;
+  cursor: not-allowed !important;
+  text-shadow: none !important;
+}
+
+.custom-select.disabled {
+  pointer-events: none !important;
+  opacity: 0.5;
+  cursor: not-allowed !important;
 }

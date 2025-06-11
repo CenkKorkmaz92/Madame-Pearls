@@ -2,17 +2,17 @@ import { Component } from '@angular/core';
 import { TranslationService } from '../translation.service';
 
 @Component({
-  selector: 'app-about',
+  selector: 'app-footer',
   standalone: true,
   imports: [],
-  templateUrl: './about.component.html',
-  styleUrl: './about.component.scss'
+  templateUrl: './footer.component.html',
+  styleUrl: './footer.component.scss',
 })
-export class AboutComponent {
+export class FooterComponent {
   constructor(public translationService: TranslationService) {}
 
-  scrollToContact(): void {
-    const collectionElement = document.getElementById('contact');
+  scrollToHome(): void {
+    const collectionElement = document.getElementById('home');
     if (collectionElement) {
       collectionElement.scrollIntoView({ behavior: 'smooth' });
     }

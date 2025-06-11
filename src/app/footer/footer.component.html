@@ -1,0 +1,33 @@
+<footer class="footer" id="footer">
+  <!-- Center: Legal Links -->
+  <div class="legal-links">
+    <ul>
+      <li><a href="#terms">{{ translationService.t('footer.terms') }}</a></li>
+      <li><a href="#privacy">{{ translationService.t('footer.privacy') }}</a></li>
+    </ul>
+  </div>
+
+  <!-- Left: Business Info -->
+  <div class="business-info">
+    <img
+      id="logo"
+      (click)="scrollToHome()"
+      src="../../assets/images/logo/logo.webp"
+      alt=""
+    />
+    <p>&copy; 2025 Madame Pearls by VA</p>
+  </div>
+
+  <!-- Right: Social Media Links -->
+  <div class="social-media">
+    <a
+      href="https://www.instagram.com/madame__pearls/?utm_source=ig_web_button_share_sheet"
+      target="_blank"
+      ><img
+        class="social-icon"
+        src="../../assets/images/icons/instagram.webp"
+        alt="Instagram"
+      />
+    </a>
+  </div>
+</footer>

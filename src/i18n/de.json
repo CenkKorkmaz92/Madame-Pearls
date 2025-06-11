@@ -1,0 +1,55 @@
+{
+  "navbar": {
+    "home": "Startseite",
+    "collection": "Kollektion",
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "partners": "Partner"
+  },
+  "hero": {
+    "line1": "Handgefertigter Schmuck. Mit Materialien aus Santorini in Griechenland.",
+    "line2": "Entdecken Sie handgefertigten Schmuck, der Luxus definiert.",
+    "line3": "Jedes Stück wird mit Leidenschaft gefertigt. Für Damen, Herren und Kinder."
+  },
+  "about": {
+    "heading": "Hi, ich bin Vanesa – auch bekannt als <em>Madame Pearls</em>",
+    "p1": "Jedes Armband und jede Kette in meinem Shop wird von mir mit viel Liebe zum Detail gefertigt – von der allerersten Idee bis zum letzten Schliff.",
+    "p2": "Die Inspiration für meinen Schmuck kam vor zwei Jahren während einer Reise nach Santorini mit meinem Mann, als er sich ein Perlenarmband kaufte.",
+    "p3": "Noch im Urlaub begann ich, nach Lavaperlen-Lieferanten zu suchen und meine ersten Designs zu skizzieren. Was als spontane Idee begann, ist inzwischen meine große Leidenschaft: handgefertigter Schmuck, der Charakter und Persönlichkeit widerspiegelt – für Menschen, die das Besondere lieben."
+  },
+  "collection": {
+    "viewCollection": "Kollektion ansehen",
+    "markFavorite": "Für das Kontaktformular markieren",
+    "women": "Damen",
+    "men": "Herren",
+    "kids": "Kinder",
+    "necklace": "Halsketten"
+  },
+  "contact": {
+    "heading": "Kontaktieren Sie mich",
+    "intro1": "Ich freue mich auf Ihre Nachricht!",
+    "intro2": "Haben Sie ein Armband im Kopf?",
+    "intro3": "Oder eine Frage zu unseren Stücken?",
+    "intro4": "Nutzen Sie das Formular, um Kontakt aufzunehmen – ich freue mich von Ihnen zu hören!",
+    "intro5": "Sie suchen handgefertigten Schmuck? Lassen Sie uns sprechen!",
+    "sendMessage": "Nachricht senden",
+    "yourName": "Ihr Name",
+    "yourEmail": "Ihre E-Mail",
+    "yourMessage": "Ihre Nachricht",
+    "favoritesHint": "Folgende Bilder aus der Kollektion haben Sie als Favorit hinzugefügt:",
+    "favoritesEmpty": "Sie können Bilder aus der Kollektion auswählen und sie Ihrer Nachricht als Favorit beifügen.",
+    "remove": "Entfernen",
+    "close": "Schließen",
+    "contactMe": "Kontaktieren Sie mich :)"
+  },
+  "footer": {
+    "terms": "AGB",
+    "privacy": "Datenschutz"
+  },
+  "partners": {
+    "heading": "Unser Partnergeschäft in Kroatien",
+    "intro1": "ist ein wunderschönes Schmuckgeschäft in Kroatien, das nun auch unseren handgefertigten Schmuck anbietet.",
+    "intro2": "Besuchen Sie sie in Kroatien, wenn Sie in der Nähe sind, oder folgen Sie ihnen online, um zu entdecken, was sie tun.",
+    "fbLink": "SilverGold Partner auf Facebook"
+  }
+}

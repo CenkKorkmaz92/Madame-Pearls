@@ -1,0 +1,51 @@
+{
+  "navbar": {
+    "home": "Početna",
+    "collection": "Kolekcija",
+    "about": "O nama",
+    "contact": "Kontakt",
+    "partners": "Partneri"
+  },
+  "hero": {
+    "line1": "Ručni nakit. S materijalima sa Santorinija u Grčkoj.",
+    "line2": "Otkrijte ručno izrađen nakit koji definira luksuz.",
+    "line3": "Svaki komad je izrađen s strašću. Za dame, gospodu i djecu."
+  },
+  "about": {
+    "heading": "Bok, ja sam Vanesa – poznata i kao <em>Madame Pearls</em>",
+    "p1": "Svaka narukvica i ogrlica u mojoj trgovini izrađena je mojim rukama s velikom pažnjom na detalje – od prve ideje do završnog dodira.",
+    "p2": "Inspiraciju za svoj nakit dobila sam prije dvije godine tijekom putovanja na Santorini sa suprugom, kada je on kupio narukvicu s biserima.",
+    "p3": "Još na odmoru počela sam tražiti dobavljače perli od lave i skicirati svoje prve dizajne. Ono što je započelo kao spontana ideja sada je moja prava strast: ručno izrađen nakit koji odražava karakter i osobnost – za ljude koji vole nešto posebno."
+  },
+  "collection": {
+    "viewCollection": "Pogledaj kolekciju",
+    "markFavorite": "Označi za kontakt obrazac"
+  },
+  "contact": {
+    "heading": "Kontaktirajte me",
+    "intro1": "Veselim se vašoj poruci!",
+    "intro2": "Imate li na umu neku narukvicu?",
+    "intro3": "Ili pitanje o našim komadima?",
+    "intro4": "Koristite obrazac za kontakt — rado ću vas čuti!",
+    "intro5": "Tražite ručno izrađen nakit? Javite se!",
+    "sendMessage": "Pošaljite poruku",
+    "yourName": "Vaše ime",
+    "yourEmail": "Vaš email",
+    "yourMessage": "Vaša poruka",
+    "favoritesHint": "Dodali ste sljedeće slike iz kolekcije kao favorite:",
+    "favoritesEmpty": "Možete odabrati slike iz kolekcije i priložiti ih kao favorite svojoj poruci.",
+    "remove": "Ukloni",
+    "close": "Zatvori",
+    "contactMe": "Kontaktirajte me :)"
+  },
+  "footer": {
+    "terms": "Uvjeti korištenja",
+    "privacy": "Pravila privatnosti"
+  },
+  "partners": {
+    "heading": "Naša partnerska trgovina u Hrvatskoj",
+    "intro1": "je prekrasna trgovina nakitom u Hrvatskoj koja sada nudi i naš ručno izrađen nakit.",
+    "intro2": "Posjetite ih u Hrvatskoj ako ste u blizini ili ih pratite online kako biste vidjeli što rade.",
+    "fbLink": "SilverGold Partner na Facebooku"
+  }
+}

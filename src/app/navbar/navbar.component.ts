@@ -1,8 +1,8 @@
-// navbar.component.ts
 import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ModalService } from '../../modal.service';
+import { ModalService } from '../modal.service';
+import { TranslationService } from '../translation.service';
 
 @Component({
   selector: 'app-navbar',
@@ -16,8 +16,15 @@ export class NavbarComponent {
   dropdownOpen = false;
   selectedLanguage = 'en';
   selectedLanguageLabel = '🇺🇸 English';
+  modalIsOpen = false; // <--- NEU
 
-  constructor(private modalService: ModalService) { }
+  constructor(public modalService: ModalService, public translationService: TranslationService) {
+    // <--- REAGIERT AUF MODALSTATUS
+    this.modalService.modalOpen$.subscribe(open => {
+      this.modalIsOpen = open;
+    });
+    this.translationService.setLanguage(this.selectedLanguage);
+  }
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
@@ -35,15 +42,16 @@ export class NavbarComponent {
         this.selectedLanguageLabel = '🇺🇸 English';
         break;
       case 'de':
-        this.selectedLanguageLabel = '🇩🇪 German';
+        this.selectedLanguageLabel = '🇩🇪 Deutsch';
         break;
       case 'gr':
-        this.selectedLanguageLabel = '🇬🇷 Greek';
+        this.selectedLanguageLabel = '🇬🇷 Ελληνικά';
         break;
       case 'hr':
-        this.selectedLanguageLabel = '🇭🇷 Kroatisch';
+        this.selectedLanguageLabel = '🇭🇷 Hrvatski';
         break;
     }
+    this.translationService.setLanguage(lang);
     console.log(`Language changed to: ${this.selectedLanguage}`);
   }
 
@@ -62,6 +70,13 @@ export class NavbarComponent {
       ) {
         this.dropdownOpen = false;
       }
+    }
+  }
+
+  scrollToHome(): void {
+    const collectionElement = document.getElementById('home');
+    if (collectionElement) {
+      collectionElement.scrollIntoView({ behavior: 'smooth' });
     }
   }
 }
