@@ -19,7 +19,11 @@
   },
   "collection": {
     "viewCollection": "Pogledaj kolekciju",
-    "markFavorite": "Označi za kontakt obrazac"
+    "markFavorite": "Označi za kontakt obrazac",
+    "women": "Dame",
+    "men": "Gospoda",
+    "kids": "Djeca",
+    "necklace": "Za sve"
   },
   "contact": {
     "heading": "Kontaktirajte me",

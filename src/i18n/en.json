@@ -19,7 +19,11 @@
   },
   "collection": {
     "viewCollection": "View Collection",
-    "markFavorite": "Mark for contact form"
+    "markFavorite": "Mark for contact form",
+    "women": "Ladies",
+    "men": "Gentlemen",
+    "kids": "Kids",
+    "necklace": "Necklaces"
   },
   "contact": {
     "heading": "Contact Me",

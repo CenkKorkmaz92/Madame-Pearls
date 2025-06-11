@@ -6,7 +6,7 @@
 
   <!-- Bio Section -->
   <div class="bio-section">
-    <h2>{{ translationService.t('about.heading') }}</h2>
+    <h2 [innerHTML]="translationService.t('about.heading')"></h2>
     <p>{{ translationService.t('about.p1') }}</p>
     <p>{{ translationService.t('about.p2') }}</p>
     <p>{{ translationService.t('about.p3') }}</p>
